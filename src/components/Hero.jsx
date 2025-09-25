@@ -35,10 +35,10 @@ const Hero = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent"></div>
 
-            <div className="relative flex items-center justify-center min-h-screen text-white px-4 pt-20">
-                <div className={`relative flex flex-col space-y-20 w-1/2 mx-35 ${isMenuOpen ? "z-0" : "z-30"}`}>
+            <div className="relative flex lg:flex-row flex-col items-center justify-center min-h-screen text-white px-4 lg:pt-20 pt-30 pb-20 lg:pb-0 space-y-5 lg:space-y-0">
+                <div className={`relative flex flex-col xl:space-y-20 space-y-10 lg:w-1/2 w-full lg:mx-35 px-10 md:px-30 lg:px-0 ${isMenuOpen ? "z-0" : "z-30"}`}>
                     <div className="space-y-6">
-                        <div className="text-5xl">
+                        <div className="xl:text-5xl text-3xl">
                             <h1 className="font-semibold">Votre évasion</h1>
                             <h1 className="font-normal">sur la Côte d'Azur !</h1>
                         </div>
@@ -50,14 +50,14 @@ const Hero = () => {
                     </div>
                     <Link
                         to="#"
-                        className="flex items-center justify-between px-10 bg-transparent text-lg border-1 border-white text-white rounded-full py-3 font-semibold hover:bg-white hover:text-gray-800 duration-300"
+                        className="flex items-center justify-between px-10 bg-transparent xl:text-lg text-sm border-1 border-white text-white rounded-full py-3 font-semibold hover:bg-white hover:text-gray-800 duration-300"
                     >
                         Réservez dès maintenant votre séjour !
                         <IoIosArrowDropright className="ml-2" size={20} />
                     </Link>
                 </div>
 
-                <div className="w-1/2 flex items-center justify-center relative">
+                <div className="lg:w-1/2 w-full flex items-center justify-center relative">
                     <div className="relative w-full h-[250px] flex items-center justify-center">
                         {images.map((img, i) => {
                             let offset = (i - index) % images.length;

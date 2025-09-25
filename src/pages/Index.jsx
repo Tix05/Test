@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { IoIosArrowDropright } from "react-icons/io";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Footer from '../components/Footer';
 
 const images = [
     "/images/img-cuisine-1.png",
@@ -105,14 +106,14 @@ const Index = () => {
     };
 
     return (
-        <div className='min-h-screen'>
+        <div className='min-h-screen overflow-x-hidden'>
             <Header />
             <Hero />
-            <section>
-                <div className='min-h-screen items-center justify-center w-full flex overflow-x-hidden my-10'>
-                    <div className="relative flex flex-col space-y-20 w-1/2 ml-35">
+            <section id='a-propos'>
+                <div className='min-h-screen items-center justify-center w-full flex lg:flex-row flex-col overflow-x-hidden my-10 xl:space-y-0 space-y-10'>
+                    <div className="relative flex flex-col space-y-20 lg:w-1/2 w-full xl:ml-35 px-10 xl:px-0 ">
                         <div className="space-y-6">
-                            <div className="text-5xl">
+                            <div className="xl:text-5xl text-3xl">
                                 <h1 className='font-normal text-nowrap'>La confort et la sérénité d'un</h1>
                                 <h1 className="font-semibold">appartement privé</h1>
                             </div>
@@ -134,7 +135,7 @@ const Index = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="w-1/2 flex items-center justify-center">
+                    <div className="xl:w-1/2 w-full flex items-center justify-center">
                         <div className="relative w-full h-[500px] flex items-center justify-center">
                             {images.map((img, i) => {
                                 let offset = (i - index) % images.length;
@@ -180,8 +181,8 @@ const Index = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#4097FF] via-[#4097FF] via-40% to-transparent"></div>
                     <div className="relative flex flex-col items-center justify-center min-h-screen text-white space-y-20 py-20">
-                        <div className='relative flex flex-col items-center justify-center w-[60vw] px-5 space-y-3'>
-                            <div className="text-5xl text-center">
+                        <div className='relative flex flex-col items-center justify-center w-full lg:w-[60vw] px-5 space-y-3'>
+                            <div className="xl:text-5xl text-3xl text-center">
                                 <h1 className='font-normal'>Saint Raphaël, l’endroit parfait pour</h1>
                                 <h1 className="font-semibold">vivre la Côte d’Azur</h1>
                             </div>
@@ -191,7 +192,7 @@ const Index = () => {
                                 </p>
                             </div>
                         </div>
-                        <div className='flex flex-wrap justify-center items-start px-20 gap-8'>
+                        <div className='flex flex-wrap justify-center items-start xl:px-20 px-0  gap-8'>
                             {loisirs.map((loisir, index) => (
                                 <div key={index} className='flex flex-col items-center justify-center space-y-2 w-40 px-2'>
                                     <img src={loisir.img} alt={loisir.description} className='w-28 h-28 object-contain hover:scale-105 duration-300' />
@@ -211,7 +212,7 @@ const Index = () => {
                     </div>
                 </div>
             </section>
-            <section>
+            <section id='localisation'>
                 <div className='relative min-h-screen bg-white overflow-hidden'>
                     <img
                         src="/images/img-map-fond.png"
@@ -219,10 +220,10 @@ const Index = () => {
                         className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-white via-white via-50% to-transparent"></div>
-                    <div className="relative flex items-center justify-center min-h-screen text-black w-full pl-35">
-                        <div className="relative flex flex-col space-y-10 w-[50vw]">
+                    <div className="relative flex xl:flex-row flex-col items-center justify-center min-h-screen text-black w-full xl:pl-35 p-10 xl:p-0 xl:space-y-0 space-y-20  ">
+                        <div className="relative flex flex-col space-y-10 xl:w-[50vw] w-full">
                             <div className="space-y-6">
-                                <div className="text-5xl">
+                                <div className="xl:text-5xl text-3xl">
                                     <h1 className="font-normal">Où se trouve Blu Azur à</h1>
                                     <h1 className="font-semibold">Saint-Raphaël ?</h1>
                                 </div>
@@ -234,15 +235,15 @@ const Index = () => {
                             </div>
                             <Link
                                 to="#"
-                                className="flex items-center justify-between px-10 bg-transparent text-lg border-1 border-[#4097FF] text-[#4097FF] rounded-full py-3 font-semibold hover:bg-[#4097FF] hover:text-white duration-300 w-[25vw]"
+                                className="flex items-center justify-between px-10 bg-transparent text-lg border-1 border-[#4097FF] text-[#4097FF] rounded-full py-3 font-semibold hover:bg-[#4097FF] hover:text-white duration-300 xl:w-[25vw] w-full"
                             >
                                 Comment s’y rendre ?
                                 <IoIosArrowDropright className="ml-2" size={20} />
                             </Link>
                         </div>
-                        <div className=' flex items-center justify-center relative w-[60vw]'>
+                        <div className='flex items-center justify-center relative xl:w-[60vw] w-full'>
                             <img src="/images/img-map.webp" alt="img-map" className='object-contain w-[500px] h-[500px] relative' />
-                            <img src="/images/map-marker.webp" alt="map-marker" className='absolute -top-14  left-20 w-[100px] h-[90px]' />
+                            <img src="/images/map-marker.webp" alt="map-marker" className='absolute xl:-top-10 xl:left-20 md:left-40 lg:left-80 -top-10 left-0 w-[100px] h-[90px] ' />
                         </div>
                     </div>
                 </div>
@@ -253,13 +254,13 @@ const Index = () => {
                         className="absolute inset-0 h-full w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-l from-[#4085D4] via-[#4085D4] via-35% to-transparent"></div>
-                    <div className="relative flex items-center justify-center min-h-screen text-white w-full space-x-20">
-                        <div className=' flex items-center justify-center relative w-[30vw]'>
+                    <div className="relative flex xl:flex-row flex-col items-center justify-center min-h-screen text-white w-full xl:space-x-20 space-x-0 space-y-10 xl:space-y-0 xl:p-0 p-10">
+                        <div className=' flex items-center justify-center relative w-full xl:w-[30vw]'>
                             <img src="/images/img-group.png" alt="img-group" className='object-contain w-[400px] h-[400px]' />
                         </div>
-                        <div className="relative flex flex-col space-y-10 w-[45vw] ">
+                        <div className="relative flex flex-col space-y-10 w-full xl:w-[45vw]">
                             <div className="space-y-6">
-                                <div className="text-[45px] text-end -space-y-5">
+                                <div className="xl:text-[45px] text-3xl  xl:text-end text-center xl:-space-y-1">
                                     <h1 className="font-normal">Un point de départ idéal</h1>
                                     <h1 className="font-semibold text-nowrap"><span className='font-normal'>pour</span> découvrir la Côte d’Azur !</h1>
                                 </div>
@@ -274,7 +275,7 @@ const Index = () => {
                     </div>
                 </div>
             </section>
-            <section>
+            <section id='activite'>
                 <div className='relative min-h-screen bg-white overflow-hidden'>
                     <img
                         src="/images/img-arbre-rocheuse.jpg"
@@ -287,7 +288,7 @@ const Index = () => {
                             <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
                                 {activities.slice(0, 2).map((activity, index) => (
                                     <div key={index} className="overflow-hidden shadow-lg relative rounded-4xl">
-                                        <img src={activity.image} alt={activity.title} className="w-full object-cover h-80" />
+                                        <img src={activity.image} alt={activity.title} className="w-full object-cover lg:h-80 h-100" />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/90 via-20% to-transparent"></div>
                                         <div className="absolute inset-0 flex items-end text-start p-10">
                                             <div className="text-white">
@@ -319,7 +320,7 @@ const Index = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div className="grid grid-cols-3 gap-3">
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-3">
                                 {activities.slice(2).map((activity, index) => (
                                     <div key={index + 2} className="overflow-hidden shadow-lg relative rounded-4xl">
                                         <img src={activity.image} alt={activity.title} className="w-full object-cover h-100" />
@@ -357,7 +358,7 @@ const Index = () => {
                     </div>
                 </div>
             </section>
-            <section>
+            <section id='reservation'>
                 <div className='relative min-h-screen bg-white overflow-hidden'>
                     <img
                         src="/images/image-fond-piscine.png"
@@ -366,8 +367,8 @@ const Index = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-[#4085D4]/85 via-[#4085D4]/85 via-60% to-transparent"></div>
                     <div className="relative flex flex-col items-center justify-center min-h-screen text-white space-y-20 py-10">
-                        <div className='relative flex flex-col items-center justify-center w-[40vw] px-5 space-y-7'>
-                            <div className="text-5xl text-center">
+                        <div className='relative flex flex-col items-center justify-center xl:w-[40vw] w-full px-5 space-y-7'>
+                            <div className="xl:text-5xl text-3xl text-center">
                                 <h1 className='font-semibold'>Réservations</h1>
                             </div>
                             <div className="text-md font-normal text-center">
@@ -377,16 +378,16 @@ const Index = () => {
                             </div>
                             <Link
                                 to="#"
-                                className="flex items-center justify-between px-5 bg-[#4097FF] text-lg border-1 border-[#4097FF] hover:border-white text-white rounded-full py-3 font-semibold hover:bg-transparent hover:text-white duration-300"
+                                className="flex items-center justify-between px-5 bg-[#4097FF] xl:text-lg text-sm border-1 border-[#4097FF] hover:border-white text-white rounded-full py-3 font-semibold hover:bg-transparent hover:text-white duration-300"
                             >
                                 Réservez dès maintenant votre séjour !
                                 <IoIosArrowDropright className="ml-5" size={20} />
                             </Link>
                         </div>
-
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     );
 };

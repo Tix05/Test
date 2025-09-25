@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes, FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import { HiMenuAlt3, HiMenu } from "react-icons/hi";
@@ -42,12 +42,12 @@ const Header = () => {
                     )}
                 </button>
             </div>
-            <div className="absolute top-0 left-0 w-full z-10 ">
+            <div className="absolute top-0 left-0 w-full z-10 items-center">
                 <AnimatePresence>
                     {shouldShowHeader && (
                         <div className="flex h-screen">
                             <motion.div
-                                className="w-16  bg-blue-transparent h-full md:flex flex-col hidden justify-end items-center"
+                                className="w-16 h-full bg-blue-transparent lg:flex flex-col hidden justify-end items-center "
                                 initial={{ x: "-100%" }}
                                 animate={{ x: 0 }}
                                 exit={{ x: "-100%" }}
@@ -68,7 +68,7 @@ const Header = () => {
                                 </div>
                             </motion.div>
                             <motion.div
-                                className="flex-1 max-w-screen-xl md:mx-5 lg:mx-20 mx-2 px-4 md:px-10 md:pr-20 flex items-center justify-between border-b-2 border-gray-300 h-20"
+                                className="flex-1 w-full md:mx-5 lg:mx-20 mx-2 px-4 md:px-10 md:pr-20 flex items-center justify-between md:border-b-2 border-gray-300 h-20"
                                 initial={{ y: "-100%" }}
                                 animate={{ y: 0 }}
                                 exit={{ y: "-100%" }}
@@ -76,7 +76,7 @@ const Header = () => {
                                 <img
                                     src="/images/logo.png"
                                     alt="logo"
-                                    className="h-16 w-16 md:h-20 md:w-20 object-contain"
+                                    className="h-20 w-20 md:h-20 md:w-20 object-contain"
                                 />
                                 <button
                                     onClick={toggleMenu}
@@ -85,25 +85,25 @@ const Header = () => {
                                     {isMenuOpen ? <FaTimes /> : <FaBars />}
                                 </button>
                                 <div className="hidden md:flex items-center space-x-6 h-full">
-                                    {["#", "#", "#"].map((path, index) => {
+                                    {["#a-propos", "#localisation", "#activite"].map((path, index) => {
                                         const labels = ["À propos", "Localisation", "Activités"];
 
                                         return (
-                                            <Link
+                                            <a
                                                 key={path}
-                                                to={path}
+                                                href={path}
                                                 className="group no-underline h-full flex items-center relative"
                                             >
                                                 <span className="text-lg text-white font-normal transition-colors duration-200">
                                                     {labels[index]}
                                                 </span>
                                                 <div className="absolute -bottom-[1px] left-0 right-0 h-1 bg-white rounded-t-md transition-all duration-200 scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-70" />
-                                            </Link>
+                                            </a>
                                         );
                                     })}
-                                    <Link to="#" className="no-underline text-lg text-white font-semibold bg-[#4097FF] px-7 py-1 rounded-full cursor-pointer hover:scale-105 duration-300 hover:bg-[#4096ffb3]">
+                                    <a href="#reservation" className="no-underline text-lg text-white font-semibold bg-[#4097FF] px-7 py-1 rounded-full cursor-pointer hover:scale-105 duration-300 hover:bg-[#4096ffb3]">
                                         Réservé
-                                    </Link>
+                                    </a>
                                 </div>
                             </motion.div>
                         </div>
@@ -118,41 +118,39 @@ const Header = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: 100 }}
                                 transition={{ duration: 0.3, ease: "easeOut" }}
-                                className="md:hidden fixed top-0 right-0 w-full max-w-[90vw] min-h-screen bg-blue-transparent rounded-l-xl bg-opacity-95 flex flex-col items-start justify-center px-6 space-y-4"
+                                className="md:hidden fixed top-20 right-0 w-full h-auto bg-white flex flex-col items-start justify-center px-6 space-y-4"
                             >
-                                <button
-                                    onClick={toggleMenu}
-                                    className="absolute top-5 right-5 text-white text-2xl focus:outline-none cursor-pointer"
-                                >
-                                    <FaTimes />
-                                </button>
-                                {["/home", "/about", "/projects"].map((path, index) => {
-                                    const labels = ["Accueil", "À propos", "Projets"];
+                                {["#a-propos", "#localisation", "#activite", "#reservation"].map((path, index) => {
+                                    const labels = ["À propos", "Loclisation", "Activité", "Réservé"];
                                     return (
-                                        <Link
+                                        <a
                                             key={path}
-                                            to={path}
+                                            href={path}
                                             onClick={toggleMenu}
                                             className="group no-underline w-full"
                                         >
                                             <div className="inline-block">
-                                                <span className="sm:text-lg text-lg text-white font-semibold block py-2 relative">
+                                                <span className="text-lg text-black font-light block py-2 relative hover:text-blue-600">
                                                     {labels[index]}
-                                                    {location.pathname === path && (
-                                                        <motion.div
-                                                            className="absolute left-0 bottom-0 h-1 bg-white rounded-t-md"
-                                                            initial={{ scaleX: 0 }}
-                                                            animate={{ scaleX: 1 }}
-                                                            exit={{ scaleX: 0 }}
-                                                            transition={{ duration: 0.3, ease: "easeOut" }}
-                                                            style={{ width: "100%" }}
-                                                        />
-                                                    )}
                                                 </span>
                                             </div>
-                                        </Link>
+                                        </a>
                                     );
                                 })}
+                                <div className="flex w-full items-center justify-start space-x-10 py-5">
+                                    <a href="#" className="text-black hover:scale-125 duration-300">
+                                        <FaFacebookF size={20} />
+                                    </a>
+                                    <a href="#" className="text-black hover:scale-125 duration-300">
+                                        <FaYoutube size={20} />
+                                    </a>
+                                    <a href="#" className="text-black hover:scale-125 duration-300">
+                                        <FaTwitter size={20} />
+                                    </a>
+                                    <a href="#" className="text-black hover:scale-125 duration-300">
+                                        <FaInstagram size={20} />
+                                    </a>
+                                </div>
                             </motion.div>
                         </>
                     )}

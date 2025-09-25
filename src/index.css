@@ -12,3 +12,7 @@
 .bg-blue-transparent {
     background-color: rgba(64, 151, 255, 0.4);
 }
+
+html {
+    scroll-behavior: smooth;
+}
